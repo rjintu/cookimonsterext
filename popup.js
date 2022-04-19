@@ -11,7 +11,7 @@ listCookies.addEventListener("click", async () => {
   chrome.cookies.getAll({
     }, function (theCookies) {
         cookies = theCookies
-        console.log(JSON.stringify(cookies[i]));
+        console.log(JSON.stringify(cookies));
         //console.log(cookies)
     });
   console.log("post click prints");
@@ -47,15 +47,6 @@ listCookies.addEventListener("click", async () => {
 //         })
 //     })
 // };
-
-chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-  chrome.cookies.getAll({
-    }, function (theCookies) {
-        cookies = theCookies
-        console.log(JSON.stringify(cookies[i]));
-    });
-  console.log('page updated');
-});
 
   // let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
