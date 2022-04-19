@@ -3,30 +3,58 @@ if (!chrome.cookies) {
   chrome.cookies = chrome.experimental.cookies;
 }
 
-// Initialize button with users's preferred color
 let listCookies = document.getElementById("listCookies");
-
-
-  // listCookies.style.backgroundColor = color;
-//   console.log(chrome.cookies)
-// });
 
 // When the button is clicked, inject setPageBackgroundColor into current page
 listCookies.addEventListener("click", async () => {
   console.log("clicked");
-  chrome.tabs.query({"status":"complete","windowId":chrome.windows.WINDOW_ID_CURRENT,"active":true}, function(tab){
-    console.log(JSON.stringify(tab));
-    chrome.cookies.getAll({"url":tab[0].url}, function(cookies) {
-      console.log(cookies.length);
-      all_cookies = "";
-      for (var elem in cookies) {
-        var curr = JSON.stringify(cookies[elem]);
-        console.log(curr);
-        all_cookies = all_cookies + curr;
-    }
-    localStorage.all_cookies = all_cookies;
-    console.log("showed cookies");
-  });
+  chrome.cookies.getAll({
+    }, function (theCookies) {
+        cookies = theCookies
+        console.log(JSON.stringify(cookies[i]));
+        //console.log(cookies)
+    });
+  console.log("post click prints");
+
+  // chrome.tabs.query({"status":"complete","windowId":chrome.windows.WINDOW_ID_CURRENT,"active":true}, function(tab){
+  //   console.log(JSON.stringify(tab));
+  //   chrome.cookies.getAll({"url":tab[0].url}, function(cookies) {
+  //     all_cookies = "";
+  //     for (var elem in cookies) {
+  //       var curr = JSON.stringify(cookies[elem]);
+  //       console.log(curr);
+  //       all_cookies = all_cookies + curr;
+  //   }
+  //   localStorage.all_cookies = all_cookies;
+  //   console.log("showed cookies");
+  // });
+// });
+});
+
+// // from get cookies extension
+// function reloadCookies() {
+//     $("tbody")
+//         .html("");
+//     chrome.tabs.getSelected(null, function(e) {
+//         chrome.cookies.getAll({
+//             url: e.url
+//         }, function(t) {
+//             $(t)
+//                 .each(function(t, n) {
+//                     console.log(n.domain + " " + n.url + " " + n.name + " " + n.value);
+//                     //addItem(n, e.url)
+//                 })
+//         })
+//     })
+// };
+
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+  chrome.cookies.getAll({
+    }, function (theCookies) {
+        cookies = theCookies
+        console.log(JSON.stringify(cookies[i]));
+    });
+  console.log('page updated');
 });
 
   // let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -35,7 +63,7 @@ listCookies.addEventListener("click", async () => {
   //   target: { tabId: tab.id },
   //   function: setPageBackgroundColor,
   // });
-});
+// });
 
 // The body of this function will be execuetd as a content script inside the
 // current page
