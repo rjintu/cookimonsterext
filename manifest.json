@@ -1,12 +1,12 @@
 {
-  "name": "CookiMonster - Getting Started Example",
-  "description": "Build an Extension!",
+  "name": "CookiMonster",
+  "description": "Increase the user's awareness of cookies on a browser",
   "version": "1.0",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["storage", "activeTab", "scripting"],
+  "permissions": ["storage", "activeTab", "scripting", "cookies", "tabs"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
