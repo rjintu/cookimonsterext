@@ -3,19 +3,6 @@ if (!chrome.cookies) {
   chrome.cookies = chrome.experimental.cookies;
 }
 
-let listCookies = document.getElementById("listCookies");
-
-// When the button is clicked, inject setPageBackgroundColor into current page
-listCookies.addEventListener("click", async () => {
-  console.log("clicked");
-  chrome.cookies.getAll({
-    }, function (theCookies) {
-        cookies = theCookies
-        console.log(JSON.stringify(cookies));
-        //console.log(cookies)
-    });
-  console.log("post click prints");
-
   // chrome.tabs.query({"status":"complete","windowId":chrome.windows.WINDOW_ID_CURRENT,"active":true}, function(tab){
   //   console.log(JSON.stringify(tab));
   //   chrome.cookies.getAll({"url":tab[0].url}, function(cookies) {
@@ -29,7 +16,6 @@ listCookies.addEventListener("click", async () => {
   //   console.log("showed cookies");
   // });
 // });
-});
 
 // // from get cookies extension
 // function reloadCookies() {
