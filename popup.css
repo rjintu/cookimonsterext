@@ -8,7 +8,7 @@ body{
 #title{
     text-align: center;
     color: #4589D8; 
-    padding-top: 5px;
+    padding-top: 15px;
     font-size: 18px;
     margin-bottom: 0px; 
 }
@@ -31,12 +31,19 @@ body{
 }
 
 #crumb{ 
+
     text-align: center;
     color: black; 
     font-size : 15px; 
-    font-weight: bold;
     margin-top: 2px; 
-    border-color: black
+    border-color: black; 
+    padding-top : 10px; 
+}
+
+#box {
+    width: 250px;
+    border: 2px solid black; 
+    margin-left: 20px;
 }
 
 #trapezoid{
@@ -56,5 +63,16 @@ body{
     width:295px; 
     height: 200px; 
     padding-left: 5px; 
+
 }
 
+#web{
+    position: absolute; 
+    bottom: 5px; 
+    
+}
+
+#day {
+    padding-top: 30px; 
+    padding-left : 20px
+}
