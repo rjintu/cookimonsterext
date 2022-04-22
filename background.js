@@ -5,7 +5,6 @@ let color = '#3aa757';
 // chrome.cookies.onChanged.addListener(function(info) {
 //   console.log("onChanged" + JSON.stringify(info));
 // });
-
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   chrome.cookies.getAll({
     }, function (theCookies) {
@@ -22,7 +21,9 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
         console.log(counter);
         let unique_domains = [...new Set(domains)];
         console.log(domains)
-        console.log(unique_domains)
+        console.log(unique_domains) 
+        // document.getElementById("number").innerHTML = "$" + unique_domains; 
     });
   console.log('page updated');
+  
 });
