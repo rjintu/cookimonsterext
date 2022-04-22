@@ -2,6 +2,7 @@
 if (!chrome.cookies) {
   chrome.cookies = chrome.experimental.cookies;
 }
+chrome.runtime.sendMessage({popupOpen: true});
 
   // chrome.tabs.query({"status":"complete","windowId":chrome.windows.WINDOW_ID_CURRENT,"active":true}, function(tab){
   //   console.log(JSON.stringify(tab));
