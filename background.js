@@ -10,6 +10,12 @@ let unique_domains;
 
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+  // document.getElementById("number").innerHTML = Math.floor(Math.random(10) * 10)
+  let test_var = Math.floor(Math.random(10) * 10)
+
+  chrome.runtime.sendMessage({greeting: test_var}, function(response) {
+    console.log(response.farewell);
+});
   chrome.cookies.getAll({
     }, function (theCookies) {
         var domains = [];
@@ -30,6 +36,14 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     });
   console.log('page updated');
 });
+
+chrome.cookies.getAll({domain: ".mydomain.com"}, function(cookies) {
+    for(var i=0; i<cookies.length;i++) {
+      console.log(cookies[i]);
+
+      chrome.cookies.remove({url: "https://" + cookies[i].domain  + cookies[i].path, name: cookies[i].name});
+    }
+  });
 
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
   if(message.popupOpen) { 

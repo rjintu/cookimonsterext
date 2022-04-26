@@ -1,7 +1,7 @@
 body{
     width: 300px;
     height: 330px;
-    background-color: #FFFFF0;
+    background-color: black;
     font-family: Inconsolata;
 }
 
@@ -51,8 +51,8 @@ body{
 
 #trapezoid{
     border-bottom: 100px solid #FFE86B;
-    border-left: 50px solid #FFFFF0;
-    border-right: 50px solid #FFFFF0;
+    border-left: 50px solid black;
+    border-right: 50px solid black;
     opacity: 1; 
     height: 0;
     width: 200px;
@@ -84,7 +84,7 @@ body{
 
 #cookies { 
     text-align: center;
-    font-size : 15px; 
+    font-size : 18px; 
     margin-top: -15px; 
 }
 
@@ -95,4 +95,16 @@ body{
     border-radius: 50px;
     align-items: center;
     margin-left: 90px; 
+}
+
+a:link#website-link, a:visited#website-link {
+    text-decoration: none;
+    color: #1d23d2;
+    font-size: 17px;
+}
+
+a:hover#website-link {
+    text-decoration: none;
+    color: #ac352d;
+    font-size: 17px;
 }
