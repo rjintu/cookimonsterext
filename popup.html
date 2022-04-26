@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html>
+  
   <head>
     <link rel="stylesheet" href="button.css" />
     <link rel="stylesheet" href="popup.css" />
+    <script src="popup.js" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Inconsolata"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inconsolata";
+      }
+    </style>
   </head>
   <body id="body">
-    <div id = "trapezoid">
-      <h1 id = "title"> Cooki Monster</h1>
-      <p id = "number">25</p>
-      <script src="popup.js"></script>
+    <div id="trapezoid">
+      <p id = "title"> YOUR PRIVACY </p>
+    
     </div>
-    <div id = "rectangle">  
-      <p> Cooki Crumb of the day: </p>
-      <p> Learn more: <a href="http://cookimonster.herokuapp.com/" target="_blank">Our Website</a></p>
+    <div id="rectangle">
+      <p id="number">0</p>
+      <p id="text">cookies collected</p>
+      <p id = "cookies">top 3:</p>
+      <p id="web">
+        <a id="website-link" href="https://support.google.com/accounts/answer/32050?hl=en&co=GENIE.Platform%3DAndroid" target="_blank">
+          <b>How to clear cookies</b>
+        </a>
+        <br>
+        <a id="website-link" href="http://cookimonster.herokuapp.com/extension" target="_blank"
+          ><b>Learn about your price tag</b></a>
+      </p>
     </div>
   </body>
 </html>
