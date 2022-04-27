@@ -5,14 +5,12 @@ if (!chrome.cookies) {
 
 // when we open the chrome extension...
 chrome.tabs.query({"status":"complete","windowId":chrome.windows.WINDOW_ID_CURRENT,"active":true}, function(tab){
-  console.log(JSON.stringify(tab));
+  // console.log(JSON.stringify(tab));
   // chrome.cookies.getAll({"url":tab[0].url}, function(cookies) {
   // get all cookie domains from list
   chrome.cookies.getAll({}, function(cookies) {
     let result = cookies.map(a => a.domain);
-    console.log(result)
     new_res = Counter(result);
-    console.log(new_res);
 
     // get the top three domains by number of cookies, convert to string with comma delimiter
     var top_3 = Object.fromEntries(Object
