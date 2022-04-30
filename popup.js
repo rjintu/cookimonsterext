@@ -18,13 +18,20 @@ chrome.tabs.query({"status":"complete","windowId":chrome.windows.WINDOW_ID_CURRE
           .sort(([, a], [, b]) => b - a)
           .filter((s => ([, v]) => s.add(v).size <= 3)(new Set))
       );
-    top_3_formatted = Object.keys(top_3).map(s => s.slice(1)).slice(0, 3).join(', ');
+    // console.log(Object.keys(top_3)[0].split('.').slice(1).join('.'))
+    top_3_formatted = Object.keys(top_3).map(s => s.split('.').slice(1).join('.')).slice(0, 3).join(', ');
   
     // populate total number of cookies
-    document.getElementById("number").innerHTML = "$" + cookies.length.toLocaleString();
+    document.getElementById("list-cookies").innerHTML = cookies.length.toLocaleString();
     // populate top three domains
-    document.getElementById("cookies").innerHTML = "top 3: " + top_3_formatted;
+    document.getElementById("cookies").innerHTML = "top culprits: " + top_3_formatted;
   });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('list-cookies').addEventListener('click', function() {
+        chrome.tabs.create({ url: 'chrome://settings/content/all' });
+    });
 });
 
 // replicate Counter() in Python
