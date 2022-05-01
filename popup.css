@@ -2,6 +2,7 @@ body{
     width: 300px;
     height: 355px;
     background-color: black;
+    font-family: "Source Code Pro";
 }
 
 #number, #list-cookies { 
@@ -10,7 +11,7 @@ body{
     font-size : 45px; 
     font-weight: bold;
     margin-bottom: 0px; 
-    margin-top: 15px; 
+    margin-top: 0px; 
     /* padding-top: 30px;  */
 }
 
@@ -49,7 +50,7 @@ a:hover#list-cookies {
     height: 0;
     width: 200px;
     background-color: #FFF59D;
-    margin-top:-35px;
+    margin-top:-28px;
 
 }
 
@@ -65,11 +66,11 @@ a:hover#list-cookies {
 #title {
     text-align: center;
     color: #0f99cb;
-    padding-top: 15px;
-    font-size: 45px;
+    padding-top: 20px;
+    font-size: 35px;
     font-weight: bolder;
     margin-bottom: 0px;
-    font-family: Marker Felt;
+    font-family: 'Grandstander', cursive;
 }
 
 #web{
