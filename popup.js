@@ -9,7 +9,7 @@ chrome.tabs.query({"status":"complete","windowId":chrome.windows.WINDOW_ID_CURRE
   // chrome.cookies.getAll({"url":tab[0].url}, function(cookies) {
   // get all cookie domains from list
   chrome.cookies.getAll({}, function(cookies) {
-    let result = cookies.map(a => a.domain);
+    let result = cookies.map(a => (((a.domain.match(/\./g) || []).length) >= 2 ? a.domain.split('.').slice(-2).join('.') : a.domain)); // preprocessing to remove the beginning '.' in domains
     new_res = Counter(result);
 
     // get the top three domains by number of cookies, convert to string with comma delimiter
@@ -18,8 +18,7 @@ chrome.tabs.query({"status":"complete","windowId":chrome.windows.WINDOW_ID_CURRE
           .sort(([, a], [, b]) => b - a)
           .filter((s => ([, v]) => s.add(v).size <= 3)(new Set))
       );
-    // console.log(Object.keys(top_3)[0].split('.').slice(1).join('.'))
-    top_3_formatted = Object.keys(top_3).map(s => s.split('.').slice(1).join('.')).slice(0, 3).join(', ');
+    top_3_formatted = Object.keys(top_3).slice(0, 3).join(', '); // get top 3
   
     // populate total number of cookies
     document.getElementById("list-cookies").innerHTML = cookies.length.toLocaleString();
